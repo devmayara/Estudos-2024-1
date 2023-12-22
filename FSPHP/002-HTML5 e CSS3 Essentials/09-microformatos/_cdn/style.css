@@ -787,6 +787,12 @@
     }
 }
 
+@media (max-width: 31em) {
+    .main_school_address {
+        flex-basis: 80%;
+    }
+}
+
 /* 480px */
 @media (max-width: 30em) {
     .main_header .main_header_content .logo {

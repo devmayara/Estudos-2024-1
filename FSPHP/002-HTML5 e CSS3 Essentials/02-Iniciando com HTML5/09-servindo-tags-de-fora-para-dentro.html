@@ -2,90 +2,84 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>02.02 Servindo tags para formulários Parte 2</title>
+    <title>02.09 Servindo tags de fora para dentro</title>
 </head>
 <body>
+    <header>
+        <a href="#">
+            <img src="midias/gift.svg" alt="logo" title="logo" height="30">
+        </a>
+        <h1>Meu blog</h1>
+
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Contato</li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <form>
-            <fieldset>
-                <legend>Meu formulário</legend>
+        <section>
+            <header>
+                <h1>Últimas notícias do blog</h1>
+            </header>
 
-                <p>
-                    Insira seu nome: <input type="text" placeholder="Digite seu nome completo" required>
-                </p>
-                <p>
-                    Insira seu CPF: <input type="text" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}.\d{3}-\d{2}" required>
-                </p>
-                <p>
-                    Insira seu email: <input type="email" placeholder="exemplo@emial.com" required="required">
-                </p>
-                <p>
-                    Insira seu senha: <input type="password" required>
-                </p>
-                <p>
-                    Insira o sexo: <br>
-                    <input type="radio" name="sexo"> Masculino <br>
-                    <input type="radio" name="sexo"> Feminino
-                </p>
-                <p>
-                    Insira seu email: <input type="email">
-                </p>
-                <p>
-                    Informe sua tecnologia preferida: <br>
-                    <input type="checkbox" checked> HTML5 <br>
-                    <input type="checkbox"> CSS3 <br>
-                    <input type="checkbox"> PHP <br>
-                    <input type="checkbox"> jQuery <br>
-                </p>
+            <article>
+                <header>
+                    <h2>Conheça o novo curso de HTML5 e CSS3</h2>
+                </header>
 
-                <p>
-                    Selecione um arquivo <input type="file">
-                </p>
+                <p></p>
+                <p></p>
+                
+                <img src="midias/imagem.jpg" height="200" alt="imagem" title="imagem">
+            </article>
 
-                <p>
-                    Informe uma Url <input type="url">
-                </p>
+            <article>
+                <header>
+                    <h2></h2>
+                </header>
 
-                <p>
-                    Selecione um curso <br>
-                    <select>
-                        <option selected disabled >-</option>
-                        <optgroup label="Curso de desenvolvimento">
-                            <option>HTML5</option>
-                            <option>CSS3</option>
-                        </optgroup>
-                        <optgroup label="Linguagem de programacao">
-                            <option>PHP</option>
-                        </optgroup>
-                    </select>
-                </p>
+                <p></p>
+                <p></p>
 
-                <p>
-                    Reange: <input type="range">
-                </p>
+                <img src="midias/imagem.jpg" height="200" alt="imagem" title="imagem">
+            </article>
 
-                <p>
-                    Color Pick: <input type="color">
-                </p>
+            <article>
+                <header>
+                    <h2></h2>
+                </header>
 
-                <p>
-                    Date: <input type="date">
-                </p>
+                <p></p>
+                <p></p>
 
-                <p>
-                    Time: <input type="time">
-                </p>
+                <img src="midias/imagem.jpg" height="200" alt="imagem" title="imagem">
+            </article>
 
-                <p>
-                    Date Time: <input type="datetime-local">
-                </p>
+            <article>
+                <header>
+                    <h2></h2>
+                </header>
 
-                <p>
-                    <button type="submit">Validar</button>
-                    <button type="reset">Limpar</button>
-                </p>
-            </fieldset>
-        </form>
+                <p></p>
+                <p></p>
+
+                <img src="midias/imagem.jpg" height="200" alt="imagem" title="imagem">
+            </article>
+
+            <article>
+                <header>
+                    <h2></h2>
+                </header>
+
+                <p></p>
+                <p></p>
+
+                <img src="midias/imagem.jpg" height="200" alt="imagem" title="imagem">
+            </article>
+        </section>
     </main>
 </body>
 </html>

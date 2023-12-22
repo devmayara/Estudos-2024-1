@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>02.02 Servindo tags para formulários Parte 2</title>
+    <title>02.08 Servindo tags para formulários propriedades</title>
 </head>
 <body>
     <main>
@@ -11,13 +11,16 @@
                 <legend>Meu formulário</legend>
 
                 <p>
-                    Insira seu nome: <input type="text">
+                    Insira seu nome: <input type="text" placeholder="Digite seu nome completo" required>
                 </p>
                 <p>
-                    Insira seu email: <input type="email">
+                    Insira seu CPF: <input type="text" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}.\d{3}-\d{2}" required>
                 </p>
                 <p>
-                    Insira su senha: <input type="password">
+                    Insira seu email: <input type="email" placeholder="exemplo@emial.com" required="required">
+                </p>
+                <p>
+                    Insira seu senha: <input type="password" required>
                 </p>
                 <p>
                     Insira o sexo: <br>
@@ -29,7 +32,7 @@
                 </p>
                 <p>
                     Informe sua tecnologia preferida: <br>
-                    <input type="checkbox"> HTML5 <br>
+                    <input type="checkbox" checked> HTML5 <br>
                     <input type="checkbox"> CSS3 <br>
                     <input type="checkbox"> PHP <br>
                     <input type="checkbox"> jQuery <br>

@@ -6,3 +6,8 @@
     font-size: 1em;
     font-family: 'Ubuntu', sans-serif;
 }
+
+.ds_none {
+    display: none !important;
+}
+
