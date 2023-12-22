@@ -1,0 +1,19 @@
+$width-content: 960px;
+$color-primary: #3e8ebb;
+$button-hover-type: 'darken';   /*  lighten ou darken  */
+$button-hover-amount: 10%;
+
+$color-green: #36ba98;
+$color-blue: #39aed9;
+$color-yellow: #f5b946;
+$color-red: #d94352;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "green": $color-green,
+    "blue": $color-blue,
+    "yellow": $color-yellow,
+    "red": $color-red
+  ), $theme-colors
+);

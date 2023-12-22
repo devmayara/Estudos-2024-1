@@ -1,0 +1,21 @@
+
+/* HEADER */
+.main_header {
+  width: 100%;
+  background-color: $color-primary;
+
+  .main_header_navigation {
+    width: $width-content;
+    margin: 0 auto;
+    padding: 20px;
+
+    a {
+      color: #fff;
+      padding: 12px;
+
+      &:hover {
+        color: #f90;
+      }
+    }
+  }
+}
