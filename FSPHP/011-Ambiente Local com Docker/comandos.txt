@@ -1,0 +1,4 @@
+docker build . -t devmayara/webserver:1.0
+docker run -it -p 8000:80 devmayara/webserver:1.0
+docker-compose up -d
+docker exec 97487b1cd883 composer create-project --prefer-dist --ignore-platform-reqs laravel/laravel blog
