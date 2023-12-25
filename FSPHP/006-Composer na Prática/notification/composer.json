@@ -1,0 +1,32 @@
+{
+    "name": "devmayara/notification",
+    "description": "this is a library that uses composer as the basis for generating email notifications",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Notification\\": "_app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mayara Silva",
+            "email": "devmayara11@gmail.com",
+            "homepage": "https://www.upinside.com.br",
+            "role": "Developer"
+        },
+        {
+            "name": "Mayara Silva Outro",
+            "email": "devmayara11outro@gmail.com",
+            "homepage": "https://www.upinside.com.br",
+            "role": "CEO and Founder"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "6.9.1"
+    },
+    "config": {
+        "vendor-dir": "lib_ext"
+    }
+}
