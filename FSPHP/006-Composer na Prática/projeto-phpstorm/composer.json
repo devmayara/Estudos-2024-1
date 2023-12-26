@@ -1,0 +1,15 @@
+{
+  "name": "devmayara/projeto-phpstorm",
+  "description": "description",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mayara Silva",
+      "email": "devmayara11@gmail.com"
+    }
+  ],
+  "require": {
+    "gustavoweb/notification": "1.*"
+  }
+}
