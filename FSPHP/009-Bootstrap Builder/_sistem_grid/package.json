@@ -1,0 +1,14 @@
+{
+  "name": "introducao-e-instalacao",
+  "version": "1.0.0",
+  "description": "Projeto de teste do bootstrap builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mayara Silva",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}

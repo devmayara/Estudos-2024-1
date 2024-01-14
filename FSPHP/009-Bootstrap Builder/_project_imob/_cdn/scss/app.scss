@@ -1,0 +1,25 @@
+@import "variables";
+
+@import "addons/font-icon";
+@import "addons/font-icon-reset";
+@import "addons/bootstrap-select";
+
+@import "theme/header";
+@import "theme/footer";
+
+@import "pages/home";
+@import "pages/contact";
+@import "pages/property";
+
+@import "fold/list-properties";
+@import "fold/optin";
+
+*, *::before, *::after {
+    outline: none !important;
+}
+
+.carousel-item {
+    img {
+        height: 450px;
+    }
+}

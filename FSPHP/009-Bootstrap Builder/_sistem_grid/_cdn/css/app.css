@@ -1,0 +1,17 @@
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main_nav {
+    margin: 0;
+}
+
+.main_nav li {
+    margin: 4px 20px;
+    list-style: none;
+}
+
+.main_nav li a {
+    padding: 4px 8px;
+}
