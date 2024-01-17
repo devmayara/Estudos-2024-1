@@ -1,0 +1,28 @@
+{
+    "name": "devmayara/fsphp",
+    "description": "Full Stack PHP Developer",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Mayara Silva",
+            "email": "devmayara11@gmail.com",
+            "homepage": "https://www.upinside.com.br",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-lib": "source/vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.9.1"
+    }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}
