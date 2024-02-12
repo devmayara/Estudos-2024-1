@@ -102,7 +102,7 @@ CREATE TABLE `users_address` (
   `complement` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `addr_user` (`user_id`),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users_address` WRITE;
