@@ -1,4 +1,7 @@
 <?php
+
+use Source\Core\Message;
+
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.07 - Camada de manipulação pt2");
 
@@ -11,8 +14,13 @@ fullStackPHPClassSession("string", __LINE__);
 
 $string = "Essa é uma string, nela temos um under_score e um guarda-chuva!";
 
-$message = new \Source\Core\Message();
+$message = new Message();
 
 echo $message->info(str_slug($string));
 echo $message->info(str_studly_case($string));
 echo $message->info(str_camel_case($string));
+
+echo $message->info(str_title($string));
+echo $message->info(str_limit_words($string, 8));
+echo $message->info(str_limit_chars($string, 45));
+
