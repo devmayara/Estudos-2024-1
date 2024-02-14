@@ -2,6 +2,10 @@
 
 namespace Source\Models;
 
+/**
+ * Class UserModel
+ * @package Source\Models
+ */
 class UserModel extends Model
 {
     /**
@@ -13,7 +17,14 @@ class UserModel extends Model
      * @var string $entity database table
      */
     protected static $entity = "users";
-    
+
+    /**
+     * @param string $first_name
+     * @param string $last_name
+     * @param string $email
+     * @param string|null $document
+     * @return $this|null
+     */
     public function bootstrap(string $first_name, string $last_name, string $email, string $document = null): ?UserModel
     {
         $this->first_name = $first_name;
@@ -23,6 +34,11 @@ class UserModel extends Model
         return $this;
     }
 
+    /**
+     * @param int $id
+     * @param string $columns
+     * @return UserModel|null
+     */
     public function load(int $id, string $columns = "*"): ?UserModel
     {
         $load = $this->read("SELECT {$columns} FROM " . self::$entity . " WHERE id = :id", "id={$id}");
@@ -35,6 +51,11 @@ class UserModel extends Model
         return $load->fetchObject(__CLASS__);
     }
 
+    /**
+     * @param $email
+     * @param string $columns
+     * @return UserModel|null
+     */
     public function find($email, string $columns = "*"): ?UserModel
     {
         $find = $this->read("SELECT {$columns} FROM " . self::$entity . " WHERE email = :email", "email={$email}");
@@ -47,6 +68,12 @@ class UserModel extends Model
         return $find->fetchObject(__CLASS__);
     }
 
+    /**
+     * @param int $limit
+     * @param int $offset
+     * @param string $columns
+     * @return array|null
+     */
     public function all(int $limit = 30, int $offset = 0, string $columns = "*"): ?array
     {
         $all = $this->read("SELECT {$columns} FROM " . self::$entity . " LIMIT :l OFFSET :o", "l={$limit}&o={$offset}");
@@ -59,6 +86,9 @@ class UserModel extends Model
         return $all->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
     }
 
+    /**
+     * @return UserModel|$this|null
+     */
     public function save(): ?UserModel
     {
         if (!$this->required()) {
@@ -99,11 +129,28 @@ class UserModel extends Model
         return $this;
     }
 
-    public function destroy()
+    /**
+     * @return UserModel|$this|null
+     */
+    public function destroy(): ?UserModel
     {
-        
+        if (!empty($this->id)) {
+            $this->delete(self::$entity, "id = :id", "id={$this->id}");
+        }
+
+        if ($this->fail()) {
+            $this->message = "Não foi possível remover o usuário!";
+            return null;
+        }
+
+        $this->message = "Usuário removido com sucesso!";
+        $this->data = null;
+        return $this;
     }
 
+    /**
+     * @return bool
+     */
     private function required(): bool
     {
         if (empty($this->first_name) || empty($this->last_name) || empty($this->email)) {
