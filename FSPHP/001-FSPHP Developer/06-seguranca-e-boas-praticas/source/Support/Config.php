@@ -11,7 +11,7 @@ define("CONF_DB_NAME", "fullstackphp");
 /**
  * PROJECT URLs
  */
-define("CONF_URL_BASE", "http://localhost/www/Estudos-2024-1/FSPHP");
+define("CONF_URL_BASE", "http://localhost/www/Estudos-2024-1/FSPHP/001-FSPHP%20Developer/06-seguranca-e-boas-praticas/06-08-camada-de-manipulacao-pt3");
 define("CONF_URL_ADMIN", CONF_URL_BASE . "/admin");
 define("CONF_URL_ERROR", CONF_URL_BASE . "/404");
 
@@ -25,6 +25,12 @@ define("CONF_DATE_APP", "Y-m-d H:i:s");
  * SESSION
  */
 define("CONF_SES_PATH", __DIR__ . "/../../storage/sessions/");
+
+/**
+ * PASSWORD
+ */
+define("CONF_PASSWD_MIN_LEN", 8);
+define("CONF_PASSWD_MAX_LEN", 40);
 
 /**
  * MESSAGE
