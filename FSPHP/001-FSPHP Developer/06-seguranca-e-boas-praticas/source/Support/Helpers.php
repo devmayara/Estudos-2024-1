@@ -97,13 +97,18 @@ function str_slug(string $string): string
     $formats = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿRr"!@#$%&*()_-+={[}]/?;:.,\\\'<>°ºª';
     $replace = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyrr                                 ';
 
-    $slug = str_replace(["-----", "----", "---", "--"], "-",
-        str_replace(" ", "-",
-            trim(strtr(
-                mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8'),
-                mb_convert_encoding($formats, 'ISO-8859-1', 'UTF-8'),
-                $replace
-            ))
+    $slug = str_replace(["-----", "----", "---", "--"],
+        "-",
+        str_replace(
+            " ",
+            "-",
+            trim(
+                strtr(
+                    mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8'),
+                    mb_convert_encoding($formats, 'ISO-8859-1', 'UTF-8'),
+                    $replace
+                )
+            )
         )
     );
     return $slug;
@@ -116,7 +121,9 @@ function str_slug(string $string): string
 function str_studly_case(string $string): string
 {
     $string = str_slug($string);
-    $studlyCase = str_replace(" ", "",
+    $studlyCase = str_replace(
+        " ",
+        "",
         mb_convert_case(str_replace("-", " ", $string), MB_CASE_TITLE)
     );
 

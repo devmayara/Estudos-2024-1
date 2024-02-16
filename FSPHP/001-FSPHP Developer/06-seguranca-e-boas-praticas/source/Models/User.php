@@ -101,32 +101,46 @@ class User extends Model
             return null;
         }
 
-        // User Update
+        if (!is_email($this->email)) {
+            $this->message->warning("O e-mail informado não tem um formato válido");
+            return null;
+        }
+
+        if (!is_password($this->password)) {
+            $min = CONF_PASSWD_MIN_LEN;
+            $max = CONF_PASSWD_MAX_LEN;
+            $this->message->warning("A senha deve ter entre {$min} e {$max} caracteres");
+            return null;
+        } else {
+            $this->password = passwd($this->password);
+        }
+
+        /** User Update */
         if (!empty($this->id)) {
             $userId = $this->id;
 
             if ($this->find("email = :e AND id != :i", "e={$this->email}&i={$userId}")) {
-                $this->message->warning("O e-mail informado já está cadastrado!");
+                $this->message->warning("O e-mail informado já está cadastrado");
                 return null;
             }
 
             $this->update(self::$entity, $this->safe(), "id = :id", "id={$userId}");
             if ($this->fail()) {
-                $this->message->error("Erro ao atualizar, verifique os dados!");
+                $this->message->error("Erro ao atualizar, verifique os dados");
                 return null;
             }
         }
 
-        // User Create
+        /** User Create */
         if (empty($this->id)) {
             if ($this->findByEmail($this->email)) {
-                $this->message->warning("O e-mail informado já está cadastrado!");
+                $this->message->warning("O e-mail informado já está cadastrado");
                 return null;
             }
 
             $userId = $this->create(self::$entity, $this->safe());
             if ($this->fail()) {
-                $this->message->error("Erro ao cadastrar, verifique os dados!");
+                $this->message->error("Erro ao cadastrar, verifique os dados");
                 return null;
             }
         }
@@ -145,11 +159,11 @@ class User extends Model
         }
 
         if ($this->fail()) {
-            $this->message = "Não foi possível remover o usuário!";
+            $this->message = "Não foi possível remover o usuário";
             return null;
         }
 
-        $this->message = "Usuário removido com sucesso!";
+        $this->message = "Usuário removido com sucesso";
         $this->data = null;
         return $this;
     }
