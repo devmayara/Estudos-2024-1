@@ -1,0 +1,27 @@
+{
+  "name": "upinside/fsphp",
+  "description": "Formação Full Stack PHP Developer",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Mayara Silva",
+      "email": "devmayara11@gmail.com",
+      "homepage": "https://devmayara.github.io/",
+      "role": "Developer"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+    "psr-4": {
+      "Source\\": "source/"
+    },
+    "files": [
+      "source/Support/Config.php",
+      "source/Support/Helpers.php"
+    ]
+  },
+  "require": {
+  }
+}
