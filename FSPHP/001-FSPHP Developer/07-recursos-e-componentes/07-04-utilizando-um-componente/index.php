@@ -27,7 +27,7 @@ try {
     // CONFIG
     $mail->isSMTP();
     $mail->setLanguage("br");
-    $mail->isSMTP(true);
+    $mail->isHTML(true);
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
     $mail->CharSet = 'utf-8';
@@ -44,7 +44,7 @@ try {
     $mail->msgHTML("<h1>Olá mundo!</h1></br><p>Esse é meu primeiro disparo de e-mail.</p>");
 
     // SEND
-    $mail->addAddress("mayara.silva5977@gmail.com", "Mayara Silva");
+    $mail->addAddress("", "");
     $send = $mail->send();
 
     var_dump($send);
