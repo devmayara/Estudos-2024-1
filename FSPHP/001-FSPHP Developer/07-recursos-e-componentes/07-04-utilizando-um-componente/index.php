@@ -9,8 +9,46 @@ require __DIR__ . "/../vendor/autoload.php";
  */
 fullStackPHPClassSession("instance", __LINE__);
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as MailException;
+
+$phpMailer = new PHPMailer();
+var_dump($phpMailer instanceof PHPMailer);
+
 
 /*
  * [ configure ]
  */
 fullStackPHPClassSession("configure", __LINE__);
+
+try {
+    $mail = new PHPMailer(true);
+
+    // CONFIG
+    $mail->isSMTP();
+    $mail->setLanguage("br");
+    $mail->isSMTP(true);
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'tls';
+    $mail->CharSet = 'utf-8';
+
+    // AUTH
+    $mail->Host = "";
+    $mail->Username = "";
+    $mail->Password = "";
+    $mail->Port = "";
+
+    // MAIL
+    $mail->setFrom("devmayara11@gmail.com", "Dev Mayara Silva");
+    $mail->Subject = "Este é meu envio via componente no FSPHP";
+    $mail->msgHTML("<h1>Olá mundo!</h1></br><p>Esse é meu primeiro disparo de e-mail.</p>");
+
+    // SEND
+    $mail->addAddress("mayara.silva5977@gmail.com", "Mayara Silva");
+    $send = $mail->send();
+
+    var_dump($send);
+} catch (MailException $exception) {
+    echo message()->error($exception->getMessage());
+}
+
