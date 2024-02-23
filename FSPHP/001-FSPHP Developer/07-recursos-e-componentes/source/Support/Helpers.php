@@ -283,9 +283,9 @@ function session(): \Source\Core\Session
  */
 
 /**
- * @return \Source\Models\User
+ * @return \Source\Models\UserOne
  */
-function user(): \Source\Models\User
+function user(): \Source\Models\UserOne
 {
-    return new \Source\Models\User();
+    return new \Source\Models\UserOne();
 }

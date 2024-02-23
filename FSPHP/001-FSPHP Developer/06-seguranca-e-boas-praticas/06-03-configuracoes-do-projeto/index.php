@@ -1,7 +1,7 @@
 <?php
 
 use Source\Core\Connect;
-use Source\Models\User;
+use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.03 - Configurações do projeto");
@@ -25,6 +25,6 @@ $read = Connect::getInstance()->prepare("SELECT * FROM users LIMIT 1,1");
 $read->execute();
 var_dump($read->fetchAll());
 
-$user = (new User())->load(1);
+$user = (new UserOne())->load(1);
 var_dump($user);
 

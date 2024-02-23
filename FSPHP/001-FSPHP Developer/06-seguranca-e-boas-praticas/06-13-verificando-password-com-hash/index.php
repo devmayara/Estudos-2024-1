@@ -1,6 +1,6 @@
 <?php
 
-use Source\Models\User;
+use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.13 - Verificando password com hash");
@@ -12,7 +12,7 @@ require __DIR__ . "/../source/autoload.php";
  */
 fullStackPHPClassSession("hash", __LINE__);
 
-$user = (new user())->findById(1);
+$user = (new UserOne())->findById(1);
 $user->password = 123456789;
 $user->save();
 

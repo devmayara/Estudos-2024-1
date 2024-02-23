@@ -1,6 +1,6 @@
 <?php
 
-use Source\Models\User;
+use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.09 - Segurança e gestão de senhas");
@@ -30,7 +30,7 @@ var_dump([
  */
 fullStackPHPClassSession("password saving", __LINE__);
 
-$user = (new User())->load(1);
+$user = (new UserOne())->load(1);
 $user->password = $pass;
 $user->save();
 
@@ -44,7 +44,7 @@ var_dump($user);
  */
 fullStackPHPClassSession("password verify", __LINE__);
 
-$login = (new User())->find("robson1@email.com.br");
+$login = (new UserOne())->find("robson1@email.com.br");
 var_dump($login);
 
 if (!$login) {

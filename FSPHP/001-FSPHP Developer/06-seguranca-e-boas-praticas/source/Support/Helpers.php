@@ -3,7 +3,7 @@
 use Source\Core\Connect;
 use Source\Core\Message;
 use Source\Core\Session;
-use Source\Models\User;
+use Source\Models\UserOne;
 
 /**
  * ####################
@@ -264,9 +264,9 @@ function session(): Session
 
 
 /**
- * @return User
+ * @return UserOne
  */
-function user(): User
+function user(): UserOne
 {
-    return new User();
+    return new UserOne();
 }

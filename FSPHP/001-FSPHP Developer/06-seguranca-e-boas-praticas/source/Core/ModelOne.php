@@ -6,7 +6,7 @@ namespace Source\Core;
  * Class Model
  * @package Source\Core
  */
-abstract class Model
+abstract class ModelOne
 {
     /** @var object|null */
     protected $data;

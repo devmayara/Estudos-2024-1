@@ -1,6 +1,6 @@
 <?php
 
-use Source\Models\User;
+use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.11 - Refatorando modelo de usuário");
@@ -12,7 +12,7 @@ require __DIR__ . "/../source/autoload.php";
  */
 fullStackPHPClassSession("find", __LINE__);
 
-$model = new User();
+$model = new UserOne();
 $user = $model->find("id = :id", "id=1");
 var_dump($user);
 
@@ -69,7 +69,7 @@ if ($user->save()) {
  */
 fullStackPHPClassSession("save update", __LINE__);
 
-$user = (new User())->findById(51);
+$user = (new UserOne())->findById(51);
 $user->first_name = "Gustavo";
 $user->last_name = "Web";
 $user->password = passwd(1434453454);

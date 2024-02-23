@@ -1,7 +1,7 @@
 <?php
 
 use Source\Core\Session;
-use Source\Models\User;
+use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.04 - Acesso e controle de sessões");
@@ -22,7 +22,7 @@ $session->unset("stats");
 
 if (!$session->has("login")) {
     echo "<p>Logar-se!</p>";
-    $user = (new User())->load(1);
+    $user = (new UserOne())->load(1);
     $session->set("login", $user->data());
 }
 

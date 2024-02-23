@@ -2,13 +2,13 @@
 
 namespace Source\Models;
 
-use Source\Core\Model;
+use Source\Core\ModelOne;
 
 /**
  * Class User
  * @package Source\Models
  */
-class User extends Model
+class UserOne extends ModelOne
 {
     /** @var array $safe no update or create */
     protected static $safe = ["id", "created_at", "updated_at"];
@@ -32,7 +32,7 @@ class User extends Model
         string $email,
         string $password,
         string $document = null
-    ): ?User {
+    ): ?UserOne {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->email = $email;
@@ -45,9 +45,9 @@ class User extends Model
      * @param string $terms
      * @param string $params
      * @param string $columns
-     * @return User|null
+     * @return UserOne|null
      */
-    public function find(string $terms, string $params, string $columns = "*"): ?User
+    public function find(string $terms, string $params, string $columns = "*"): ?UserOne
     {
         $find = $this->read("SELECT {$columns} FROM " . self::$entity . " WHERE {$terms}", $params);
         if ($this->fail() || !$find->rowCount()) {
@@ -59,9 +59,9 @@ class User extends Model
     /**
      * @param int $id
      * @param string $columns
-     * @return User|null
+     * @return UserOne|null
      */
-    public function findById(int $id, string $columns = "*"): ?User
+    public function findById(int $id, string $columns = "*"): ?UserOne
     {
         return $this->find("id = :id", "id={$id}", $columns);
     }
@@ -69,9 +69,9 @@ class User extends Model
     /**
      * @param $email
      * @param string $columns
-     * @return User|null
+     * @return UserOne|null
      */
-    public function findByEmail($email, string $columns = "*"): ?User
+    public function findByEmail($email, string $columns = "*"): ?UserOne
     {
         return $this->find("email = :email", "email={$email}", $columns);
     }
@@ -95,9 +95,9 @@ class User extends Model
     }
 
     /**
-     * @return User|null
+     * @return UserOne|null
      */
-    public function save(): ?User
+    public function save(): ?UserOne
     {
         if (!$this->required()) {
             $this->message->warning("Nome, sobrenome, e-mail e senha são obrigatórios");
@@ -153,9 +153,9 @@ class User extends Model
     }
 
     /**
-     * @return User|null
+     * @return UserOne|null
      */
-    public function destroy(): ?User
+    public function destroy(): ?UserOne
     {
         if (!empty($this->id)) {
             $this->delete(self::$entity, "id = :id", "id={$this->id}");

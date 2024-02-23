@@ -47,12 +47,12 @@ $view->path("test", __DIR__ . "/../assets/views/test");
 if (empty($_GET["id"])) {
     echo $view->render("test::list", [
         "title" => "Usuários do Sistema",
-        "list" => (new \Source\Models\User())->all(5)
+        "list" => (new \Source\Models\UserOne())->all(5)
     ]);
 } else {
     echo $view->render("test::user", [
         "title" => "Editar Usuário",
-        "user" => (new \Source\Models\User())->findById($_GET["id"])
+        "user" => (new \Source\Models\UserOne())->findById($_GET["id"])
     ]);
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-use Source\Models\User;
+use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.12 - Efetuando cadastro de usuário");
@@ -19,7 +19,7 @@ if ($post) {
     if (!csrf_verify($post)) {
         $error = message()->error("Erro ao enviar, por favor tente novamente!");
     } else {
-        $user = new User();
+        $user = new UserOne();
         $user->bootstrap(
             $data->first_name,
             $data->last_name,
