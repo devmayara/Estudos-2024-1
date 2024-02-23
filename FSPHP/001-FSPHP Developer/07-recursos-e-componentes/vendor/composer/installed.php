@@ -3,13 +3,22 @@
         'name' => 'upinside/fsphp',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e689b6e06fadd9b74375c2927d82f27c511ea5f8',
+        'reference' => '009fdf9619c5124a1d65618d267b81f9dd00f132',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'coffeecode/uploader' => array(
+            'pretty_version' => '2.0.4',
+            'version' => '2.0.4.0',
+            'reference' => '4601ff1665a4591087c524239c1e545ba4834453',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../coffeecode/uploader',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'league/plates' => array(
             'pretty_version' => 'v3.5.0',
             'version' => '3.5.0.0',
@@ -31,7 +40,7 @@
         'upinside/fsphp' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e689b6e06fadd9b74375c2927d82f27c511ea5f8',
+            'reference' => '009fdf9619c5124a1d65618d267b81f9dd00f132',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
