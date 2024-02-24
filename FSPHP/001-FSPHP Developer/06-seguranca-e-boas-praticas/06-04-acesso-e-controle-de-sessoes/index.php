@@ -1,6 +1,6 @@
 <?php
 
-use Source\Core\Session;
+use Source\Core\SessionOne;
 use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
@@ -13,7 +13,7 @@ require __DIR__ . "/../source/autoload.php";
  */
 fullStackPHPClassSession("session", __LINE__);
 
-$session = new Session();
+$session = new SessionOne();
 $session->set("user", 1);
 $session->regenerate();
 

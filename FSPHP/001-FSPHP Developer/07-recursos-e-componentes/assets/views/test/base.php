@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title><?= $title; ?></title>
+    <title>Usuários do sistema</title>
 
     <style>
         .paginator {
@@ -39,7 +39,7 @@
 </head>
 <body>
     <header>
-        <h3 class="trigger accept"><?= $title; ?></h3>
+        <h3 class="trigger accept">Usuários do sistema</h3>
     </header>
 
     <?php if ($this->section("nav")): ?>

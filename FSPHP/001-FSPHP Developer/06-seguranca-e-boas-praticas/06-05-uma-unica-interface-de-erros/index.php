@@ -1,7 +1,7 @@
 <?php
 
 use Source\Core\MessageOne;
-use Source\Core\Session;
+use Source\Core\SessionOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.05 - Uma única interface de erros");
@@ -48,7 +48,7 @@ echo $message->error($message->error("Essa é uma mensagem renderizada!")->json(
  */
 fullStackPHPClassSession("flash message", __LINE__);
 
-$session = new Session();
+$session = new SessionOne();
 
 $message->success("Essa é uma mensagem flash!")->flash();
 

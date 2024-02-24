@@ -268,11 +268,11 @@ function message(): \Source\Core\MessageOne
 }
 
 /**
- * @return \Source\Core\Session
+ * @return \Source\Core\SessionOne
  */
-function session(): \Source\Core\Session
+function session(): \Source\Core\SessionOne
 {
-    return new \Source\Core\Session();
+    return new \Source\Core\SessionOne();
 }
 
 

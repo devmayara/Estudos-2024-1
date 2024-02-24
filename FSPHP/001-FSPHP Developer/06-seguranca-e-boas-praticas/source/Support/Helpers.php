@@ -2,7 +2,7 @@
 
 use Source\Core\ConnectOne;
 use Source\Core\MessageOne;
-use Source\Core\Session;
+use Source\Core\SessionOne;
 use Source\Models\UserOne;
 
 /**
@@ -248,11 +248,11 @@ function message(): MessageOne
 }
 
 /**
- * @return Session
+ * @return SessionOne
  */
-function session(): Session
+function session(): SessionOne
 {
-    return new Session();
+    return new SessionOne();
 }
 
 
