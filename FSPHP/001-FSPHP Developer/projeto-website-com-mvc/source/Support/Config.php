@@ -11,7 +11,7 @@ define("CONF_DB_NAME", "fullstackphp");
  * PROJECT URLs
  */
 define("CONF_URL_BASE", "https://www.cafecontrol.com.br");
-define("CONF_URL_TEST", "https://www.localhost/www/Estudos-2024-1/FSPHP/001-FSPHP%20Developer/projeto-website-com-mvc/");
+define("CONF_URL_TEST", "https://www.localhost/www/Estudos-2024-1/FSPHP/001-FSPHP%20Developer/projeto-website-com-mvc");
 define("CONF_URL_ADMIN", "/admin");
 
 /**
@@ -31,6 +31,8 @@ define("CONF_SOCIAL_FACEBOOK_PAGE", "upinside");
 define("CONF_SOCIAL_FACEBOOK_AUTHOR", "robsonvleiteoficial");
 define("CONF_SOCIAL_GOOGLE_PAGE", "107305124528362639842");
 define("CONF_SOCIAL_GOOGLE_AUTHOR", "103958419096641225872");
+define("CONF_SOCIAL_INSTAGRAM_PAGE", "upinside");
+define("CONF_SOCIAL_YOUTUBE_PAGE", "upinside");
 
 /**
  * DATES
