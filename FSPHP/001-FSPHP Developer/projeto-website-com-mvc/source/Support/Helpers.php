@@ -44,8 +44,11 @@ function str_slug(string $string): string
     $formats = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿRr"!@#$%&*()_-+={[}]/?;:.,\\\'<>°ºª';
     $replace = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr                                 ';
 
-    $slug = str_replace(["-----", "----", "---", "--"], "-",
-        str_replace(" ", "-",
+    $slug = str_replace(["-----", "----", "---", "--"],
+        "-",
+        str_replace(
+            " ",
+            "-",
             trim(strtr(utf8_decode($string), utf8_decode($formats), $replace))
         )
     );
@@ -59,7 +62,9 @@ function str_slug(string $string): string
 function str_studly_case(string $string): string
 {
     $string = str_slug($string);
-    $studlyCase = str_replace(" ", "",
+    $studlyCase = str_replace(
+        " ",
+        "",
         mb_convert_case(str_replace("-", " ", $string), MB_CASE_TITLE)
     );
 
@@ -131,9 +136,20 @@ function str_limit_chars(string $string, int $limit, string $pointer = "..."): s
  * @param string $path
  * @return string
  */
-function url(string $path): string
+function url(string $path = null): string
 {
-    return CONF_URL_BASE . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+    if (strpos($_SERVER['HTTP_HOST'], "localhost")) {
+        if ($path) {
+            return CONF_URL_TEST . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+        }
+        return CONF_URL_TEST;
+    }
+
+    if ($path) {
+        return CONF_URL_BASE . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+    }
+
+    return CONF_URL_BASE;
 }
 
 /**
