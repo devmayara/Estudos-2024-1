@@ -1,6 +1,6 @@
 <?php
 
-use Source\Core\Message;
+use Source\Core\MessageOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.08 - Camada de manipulação pt3");
@@ -12,7 +12,7 @@ require __DIR__ . "/../source/autoload.php";
  */
 fullStackPHPClassSession("validate", __LINE__);
 
-$message = new Message();
+$message = new MessageOne();
 
 $email = "dev@mayara.com";
 if (!is_email($email)) {

@@ -2,7 +2,7 @@
 
 namespace Source\Core;
 
-class Message
+class MessageOne
 {
     private $text;
     private $type;
@@ -28,28 +28,28 @@ class Message
         return $this->type;
     }
 
-    public function info(string $message): Message
+    public function info(string $message): MessageOne
     {
         $this->type = CONF_MESSAGE_INFO;
         $this->text = $this->filter($message);
         return $this;
     }
 
-    public function success(string $message): Message
+    public function success(string $message): MessageOne
     {
         $this->type = CONF_MESSAGE_SUCCESS;
         $this->text = $this->filter($message);
         return $this;
     }
 
-    public function warning(string $message): Message
+    public function warning(string $message): MessageOne
     {
         $this->type = CONF_MESSAGE_WARNING;
         $this->text = $this->filter($message);
         return $this;
     }
 
-    public function error(string $message): Message
+    public function error(string $message): MessageOne
     {
         $this->type = CONF_MESSAGE_ERROR;
         $this->text = $this->filter($message);

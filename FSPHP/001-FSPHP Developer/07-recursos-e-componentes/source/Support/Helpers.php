@@ -256,15 +256,15 @@ function date_fmt_app(string $date = "now"): string
  */
 function db(): PDO
 {
-    return \Source\Core\Connect::getInstance();
+    return \Source\Core\ConnectOne::getInstance();
 }
 
 /**
- * @return \Source\Core\Message
+ * @return \Source\Core\MessageOne
  */
-function message(): \Source\Core\Message
+function message(): \Source\Core\MessageOne
 {
-    return new \Source\Core\Message();
+    return new \Source\Core\MessageOne();
 }
 
 /**

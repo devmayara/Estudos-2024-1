@@ -97,9 +97,9 @@ class Session
     }
 
     /**
-     * @return Message|null
+     * @return MessageOne|null
      */
-    public function flash(): ?Message
+    public function flash(): ?MessageOne
     {
         if ($this->has("flash")) {
             $flash = $this->flash;

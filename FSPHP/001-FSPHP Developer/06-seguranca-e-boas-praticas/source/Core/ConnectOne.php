@@ -9,7 +9,7 @@ use PDOException;
  * Class Connect
  * @package Source\Core
  */
-class Connect
+class ConnectOne
 {
     //private const HOST = "localhost";
     //private const USER = "root";

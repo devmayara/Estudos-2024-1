@@ -1,6 +1,6 @@
 <?php
 
-use Source\Core\Connect;
+use Source\Core\ConnectOne;
 use Source\Models\UserOne;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
@@ -21,7 +21,7 @@ var_dump(get_defined_constants(true)['user']);
  */
 fullStackPHPClassSession("refatoramento", __LINE__);
 
-$read = Connect::getInstance()->prepare("SELECT * FROM users LIMIT 1,1");
+$read = ConnectOne::getInstance()->prepare("SELECT * FROM users LIMIT 1,1");
 $read->execute();
 var_dump($read->fetchAll());
 

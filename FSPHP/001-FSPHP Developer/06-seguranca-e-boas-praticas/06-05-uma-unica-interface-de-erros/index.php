@@ -1,6 +1,6 @@
 <?php
 
-use Source\Core\Message;
+use Source\Core\MessageOne;
 use Source\Core\Session;
 
 require __DIR__ . '/../../fullstackphp/fsphp.php';
@@ -13,7 +13,7 @@ require __DIR__ . "/../source/autoload.php";
  */
 fullStackPHPClassSession("message class", __LINE__);
 
-$message = new Message();
+$message = new MessageOne();
 var_dump($message, get_class_methods($message));
 
 

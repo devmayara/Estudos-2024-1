@@ -14,7 +14,7 @@ abstract class ModelOne
     /** @var \PDOException|null */
     protected $fail;
 
-    /** @var Message|null */
+    /** @var MessageOne|null */
     protected $message;
 
     /**
@@ -22,7 +22,7 @@ abstract class ModelOne
      */
     public function __construct()
     {
-        $this->message = new Message();
+        $this->message = new MessageOne();
     }
 
     /**
@@ -73,9 +73,9 @@ abstract class ModelOne
     }
 
     /**
-     * @return Message|null
+     * @return MessageOne|null
      */
-    public function message(): ?Message
+    public function message(): ?MessageOne
     {
         return $this->message;
     }
@@ -92,10 +92,10 @@ abstract class ModelOne
             $columns = implode(", ", array_keys($data));
             $values = ":" . implode(", :", array_keys($data));
 
-            $stmt = Connect::getInstance()->prepare("INSERT INTO {$entity} ({$columns}) VALUES ({$values})");
+            $stmt = ConnectOne::getInstance()->prepare("INSERT INTO {$entity} ({$columns}) VALUES ({$values})");
             $stmt->execute($this->filter($data));
 
-            return Connect::getInstance()->lastInsertId();
+            return ConnectOne::getInstance()->lastInsertId();
         } catch (\PDOException $exception) {
             $this->fail = $exception;
             return null;
@@ -111,7 +111,7 @@ abstract class ModelOne
     protected function read(string $select, string $params = null): ?\PDOStatement
     {
         try {
-            $stmt = Connect::getInstance()->prepare($select);
+            $stmt = ConnectOne::getInstance()->prepare($select);
 
             if ($params) {
                 parse_str($params, $params);
@@ -149,7 +149,7 @@ abstract class ModelOne
             $dataSet = implode(", ", $dataSet);
             parse_str($params, $params);
 
-            $stmt = Connect::getInstance()->prepare("UPDATE {$entity} SET {$dataSet} WHERE {$terms}");
+            $stmt = ConnectOne::getInstance()->prepare("UPDATE {$entity} SET {$dataSet} WHERE {$terms}");
             $stmt->execute($this->filter(array_merge($data, $params)));
             return ($stmt->rowCount() ?? 1);
         } catch (\PDOException $exception) {
@@ -168,7 +168,7 @@ abstract class ModelOne
     protected function delete(string $entity, string $terms, string $params): ?int
     {
         try {
-            $stmt = Connect::getInstance()->prepare("DELETE FROM {$entity} WHERE {$terms}");
+            $stmt = ConnectOne::getInstance()->prepare("DELETE FROM {$entity} WHERE {$terms}");
             parse_str($params, $params);
             $stmt->execute($params);
             return ($stmt->rowCount() ?? 1);

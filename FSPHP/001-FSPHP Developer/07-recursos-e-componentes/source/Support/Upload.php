@@ -5,7 +5,7 @@ namespace Source\Support;
 use CoffeeCode\Uploader\Image;
 use CoffeeCode\Uploader\File;
 use CoffeeCode\Uploader\Media;
-use Source\Core\Message;
+use Source\Core\MessageOne;
 
 /**
  * Class Upload
@@ -13,7 +13,7 @@ use Source\Core\Message;
  */
 class Upload
 {
-    /** @var Message */
+    /** @var MessageOne */
     private $message;
 
     /**
@@ -21,13 +21,13 @@ class Upload
      */
     public function __construct()
     {
-        $this->message = new Message();
+        $this->message = new MessageOne();
     }
 
     /**
-     * @return Message
+     * @return MessageOne
      */
-    public function message(): Message
+    public function message(): MessageOne
     {
         return $this->message;
     }

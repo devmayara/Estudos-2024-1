@@ -1,7 +1,7 @@
 <?php
 
-use Source\Core\Connect;
-use Source\Core\Message;
+use Source\Core\ConnectOne;
+use Source\Core\MessageOne;
 use Source\Core\Session;
 use Source\Models\UserOne;
 
@@ -236,15 +236,15 @@ function redirect(string $url): void
  */
 function db(): PDO
 {
-    return Connect::getInstance();
+    return ConnectOne::getInstance();
 }
 
 /**
- * @return Message
+ * @return MessageOne
  */
-function message(): Message
+function message(): MessageOne
 {
-    return new Message();
+    return new MessageOne();
 }
 
 /**
