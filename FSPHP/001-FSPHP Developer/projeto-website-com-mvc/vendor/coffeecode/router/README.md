@@ -8,9 +8,9 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/robsonvleite/router.svg?style=flat-square)](https://scrutinizer-ci.com/g/robsonvleite/router)
 [![Total Downloads](https://img.shields.io/packagist/dt/coffeecode/router.svg?style=flat-square)](https://packagist.org/packages/coffeecode/router)
 
-###### Small, simple and uncomplicated. The router is a PHP route components with abstraction for MVC. Prepared with RESTfull verbs (GET, POST, PUT, PATCH and DELETE), works on its own layer in isolation and can be integrated without secrets to your application.
+###### Small, simple and uncomplicated. The route is a PHP route components with abstraction for MVC. Prepared with RESTfull verbs (GET, POST, PUT, PATCH and DELETE), works on its own layer in isolation and can be integrated without secrets to your application.
 
-Pequeno, simples e descomplicado. O router é um componentes de rotas PHP com abstração para MVC. Preparado com verbos
+Pequeno, simples e descomplicado. O route é um componentes de rotas PHP com abstração para MVC. Preparado com verbos
 RESTfull (GET, POST, PUT, PATCH e DELETE), trabalha em sua própria camada de forma isolada e pode ser integrado sem
 segredos a sua aplicação.
 
@@ -23,7 +23,7 @@ equipe UpInside. Com eles você executa tarefas rotineiras com poucas linhas, es
 
 ### Highlights
 
-- Router class with all RESTful verbs (Classe router com todos os verbos RESTful)
+- Router class with all RESTful verbs (Classe route com todos os verbos RESTful)
 - Optimized dispatch with total decision control (Despacho otimizado com controle total de decisões)
 - Requesting Spoofing for Local Verbalization (Falsificador (Spoofing) de requisição para verbalização local)
 - It's very simple to create routes for your application or API (É muito simples criar rotas para sua aplicação ou API)
@@ -35,21 +35,21 @@ equipe UpInside. Com eles você executa tarefas rotineiras com poucas linhas, es
 Router is available via Composer:
 
 ```bash
-"coffeecode/router": "2.0.*"
+"coffeecode/route": "2.0.*"
 ```
 
 or run
 
 ```bash
-composer require coffeecode/router
+composer require coffeecode/route
 ```
 
 ## Documentation
 
-###### For details on how to use the router, see the sample folder with details in the component directory. To use the router you need to redirect your route routing navigation (index.php) where all traffic must be handled. The example below shows how:
+###### For details on how to use the route, see the sample folder with details in the component directory. To use the route you need to redirect your route routing navigation (index.php) where all traffic must be handled. The example below shows how:
 
-Para mais detalhes sobre como usar o router, veja a pasta de exemplo com detalhes no diretório do componente. Para usar
-o router é preciso redirecionar sua navegação para o arquivo raiz de rotas (index.php) onde todo o tráfego deve ser
+Para mais detalhes sobre como usar o route, veja a pasta de exemplo com detalhes no diretório do componente. Para usar
+o route é preciso redirecionar sua navegação para o arquivo raiz de rotas (index.php) onde todo o tráfego deve ser
 tratado. O exemplo abaixo mostra como:
 
 #### Apache
@@ -90,56 +90,56 @@ location / {
 
 use CoffeeCode\Router\Router;
 
-$router = new Router("https://www.youdomain.com");
+$route = new Router("https://www.youdomain.com");
 
 /**
  * routes
  * The controller must be in the namespace Test\Controller
  * this produces routes for route, route/$id, route/{$id}/profile, etc.
  */
-$router->namespace("Test");
+$route->namespace("Test");
 
-$router->get("/route", "Controller:method");
-$router->post("/route/{id}", "Controller:method");
-$router->put("/route/{id}/profile", "Controller:method");
-$router->patch("/route/{id}/profile/{photo}", "Controller:method");
-$router->delete("/route/{id}", "Controller:method");
+$route->get("/route", "Controller:method");
+$route->post("/route/{id}", "Controller:method");
+$route->put("/route/{id}/profile", "Controller:method");
+$route->patch("/route/{id}/profile/{photo}", "Controller:method");
+$route->delete("/route/{id}", "Controller:method");
 
 /**
  * group by routes and namespace
  * this produces routes for /admin/route and /admin/route/$id
  * The controller must be in the namespace Dash\Controller
  */
-$router->group("admin")->namespace("Dash");
+$route->group("admin")->namespace("Dash");
 
-$router->get("/route", "Controller:method");
-$router->post("/route/{id}", "Controller:method");
+$route->get("/route", "Controller:method");
+$route->post("/route/{id}", "Controller:method");
 
 /**
  * sub group
  */
-$router->group("admin/support");
+$route->group("admin/support");
 
-$router->get("/tickets", "Controller:method");
-$router->post("/ticket/{id}", "Controller:method");
+$route->get("/tickets", "Controller:method");
+$route->post("/ticket/{id}", "Controller:method");
 
 /**
  * Group Error
  * This monitors all Router errors. Are they: 400 Bad Request, 404 Not Found, 405 Method Not Allowed and 501 Not Implemented
  */
-$router->group("error")->namespace("Test");
-$router->get("/{errcode}", "Coffee:notFound");
+$route->group("error")->namespace("Test");
+$route->get("/{errcode}", "Coffee:notFound");
 
 /**
  * This method executes the routes
  */
-$router->dispatch();
+$route->dispatch();
 
 /*
  * Redirect all errors
  */
-if ($router->error()) {
-    $router->redirect("/error/{$router->error()}");
+if ($route->error()) {
+    $route->redirect("/error/{$route->error()}");
 }
 ```
 
@@ -150,28 +150,28 @@ if ($router->error()) {
 
 use CoffeeCode\Router\Router;
 
-$router = new Router("https://www.youdomain.com");
+$route = new Router("https://www.youdomain.com");
 
 /**
  * routes
  * The controller must be in the namespace Test\Controller
  */
-$router->namespace("Test")->group("name");
+$route->namespace("Test")->group("name");
 
-$router->get("/", "Name:home", "name.home");
-$router->get("/hello", "Name:hello", "name.hello");
-$router->get("/redirect", "Name:redirect", "name.redirect");
+$route->get("/", "Name:home", "name.home");
+$route->get("/hello", "Name:hello", "name.hello");
+$route->get("/redirect", "Name:redirect", "name.redirect");
 
 /**
  * This method executes the routes
  */
-$router->dispatch();
+$route->dispatch();
 
 /*
  * Redirect all errors
  */
-if ($router->error()) {
-    $router->redirect("name.hello");
+if ($route->error()) {
+    $route->redirect("name.hello");
 }
 ```
 
@@ -182,22 +182,22 @@ if ($router->error()) {
 
 class Name
 {
-    public function __construct($router)
+    public function __construct($route)
     {
-        $this->router = $router;
+        $this->route = $route;
     }
 
     public function home(): void
     {
         echo "<h1>Home</h1>";
-        echo "<p>", $this->router->route("name.home"), "</p>";
-        echo "<p>", $this->router->route("name.hello"), "</p>";
-        echo "<p>", $this->router->route("name.redirect"), "</p>";
+        echo "<p>", $this->route->route("name.home"), "</p>";
+        echo "<p>", $this->route->route("name.hello"), "</p>";
+        echo "<p>", $this->route->route("name.redirect"), "</p>";
     }
 
     public function redirect(): void
     {
-        $this->router->redirect("name.hello");
+        $this->route->redirect("name.hello");
     }
 }
 ```
@@ -209,9 +209,9 @@ class Name
 
 use CoffeeCode\Router\Router;
 
-$router = new Router("https://www.youdomain.com");
+$route = new Router("https://www.youdomain.com");
 
-$this->router->route("name.params", [
+$this->route->route("name.params", [
     "category" => 22,
     "page" => 2
 ]);
@@ -219,7 +219,7 @@ $this->router->route("name.params", [
 //result
 //https://www.youdomain.com/name/params/22/page/2
 
-$this->router->route("name.params", [
+$this->route->route("name.params", [
     "category" => 22,
     "page" => 2,
     "argument1" => "most filter",
@@ -237,12 +237,12 @@ $this->router->route("name.params", [
 
 use CoffeeCode\Router\Router;
 
-$router = new Router("https://www.youdomain.com");
+$route = new Router("https://www.youdomain.com");
 
 /**
  * GET httpMethod
  */
-$router->get("/", function ($data) {
+$route->get("/", function ($data) {
     $data = ["realHttp" => $_SERVER["REQUEST_METHOD"]] + $data;
     echo "<h1>GET :: Spoofing</h1>", "<pre>", print_r($data, true), "</pre>";
 });
@@ -250,7 +250,7 @@ $router->get("/", function ($data) {
 /**
  * GET httpMethod and Route
  */
- $router->get("/", function ($data, Router $route) {
+ $route->get("/", function ($data, Router $route) {
     $data = ["realHttp" => $_SERVER["REQUEST_METHOD"]] + $data;
     echo "<h1>GET :: Spoofing</h1>", "<pre>", print_r($data, true), "</pre>";
     var_dump($route->current());
@@ -259,7 +259,7 @@ $router->get("/", function ($data) {
 /**
  * POST httpMethod
  */
-$router->post("/", function ($data) {
+$route->post("/", function ($data) {
     $data = ["realHttp" => $_SERVER["REQUEST_METHOD"]] + $data;
     echo "<h1>POST :: Spoofing</h1>", "<pre>", print_r($data, true), "</pre>";
 });
@@ -267,7 +267,7 @@ $router->post("/", function ($data) {
 /**
  * PUT spoofing and httpMethod
  */
-$router->put("/", function ($data) {
+$route->put("/", function ($data) {
     $data = ["realHttp" => $_SERVER["REQUEST_METHOD"]] + $data;
     echo "<h1>PUT :: Spoofing</h1>", "<pre>", print_r($data, true), "</pre>";
 });
@@ -275,7 +275,7 @@ $router->put("/", function ($data) {
 /**
  * PATCH spoofing and httpMethod
  */
-$router->patch("/", function ($data) {
+$route->patch("/", function ($data) {
     $data = ["realHttp" => $_SERVER["REQUEST_METHOD"]] + $data;
     echo "<h1>PATCH :: Spoofing</h1>", "<pre>", print_r($data, true), "</pre>";
 });
@@ -283,12 +283,12 @@ $router->patch("/", function ($data) {
 /**
  * DELETE spoofing and httpMethod
  */
-$router->delete("/", function ($data) {
+$route->delete("/", function ($data) {
     $data = ["realHttp" => $_SERVER["REQUEST_METHOD"]] + $data;
     echo "<h1>DELETE :: Spoofing</h1>", "<pre>", print_r($data, true), "</pre>";
 });
 
-$router->dispatch();
+$route->dispatch();
 ```
 
 ##### Simple Middleware
@@ -298,17 +298,17 @@ $router->dispatch();
 
 use CoffeeCode\Router\Router;
 
-$router = new Router("https://www.youdomain.com");
+$route = new Router("https://www.youdomain.com");
 
 //simple
-$router->get("/edit/{id}", "Coffee:edit", middleware: \Http\Guest::class);
-$router->get("/denied", "Coffee:denied", "coffe.denied", \Http\Group::class);
+$route->get("/edit/{id}", "Coffee:edit", middleware: \Http\Guest::class);
+$route->get("/denied", "Coffee:denied", "coffe.denied", \Http\Group::class);
 
 //multiple
-$router->get("/logado", "Coffee:logged", middleware: [\Http\Guest::class, \Http\Group::class]);
+$route->get("/logado", "Coffee:logged", middleware: [\Http\Guest::class, \Http\Group::class]);
 
 //callable
-$router->get("/call", function ($data, Router $router){
+$route->get("/call", function ($data, Router $route){
     //code here
 }, middleware: \Http\Guest::class);
 ```
@@ -320,13 +320,13 @@ $router->get("/call", function ($data, Router $router){
 
 use CoffeeCode\Router\Router;
 
-$router = new Router("https://www.youdomain.com");
+$route = new Router("https://www.youdomain.com");
 
 //group single or multiple
-$router->group("name", \Http\Guest::class);
-$router->get("/", "Name:home", "name.home");
-$router->get("/hello", "Name:hello", "name.hello");
-$router->get("/redirect", "Name:redirect", "name.redirect");
+$route->group("name", \Http\Guest::class);
+$route->get("/", "Name:home", "name.home");
+$route->get("/hello", "Name:hello", "name.hello");
+$route->get("/redirect", "Name:redirect", "name.redirect");
 ```
 
 ##### Simple Middleware Class Example
@@ -340,11 +340,11 @@ use CoffeeCode\Router\Router;
 
 class User
 {
-    public function handle(Router $router): bool
+    public function handle(Router $route): bool
     {
         $user = true;
         if ($user) {
-            var_dump($router->current());
+            var_dump($route->current());
             return true;
         }
         return false;
@@ -385,7 +385,7 @@ pasta de exemplo. De uma atenção para o campo _method, ele pode ser do tipo hi
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://localhost/coffeecode/router/example/spoofing/",
+  CURLOPT_URL => "http://localhost/coffeecode/route/example/spoofing/",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,

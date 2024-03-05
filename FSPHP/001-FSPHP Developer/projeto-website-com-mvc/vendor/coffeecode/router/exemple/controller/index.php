@@ -81,6 +81,6 @@ $router->get("/{errcode}", "Coffee:notFound");
 $router->dispatch();
 
 if ($router->error()) {
-    //var_dump($router->error());
+    //var_dump($route->error());
     $router->redirect("/error/{$router->error()}");
 }

@@ -873,7 +873,7 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 			applyClassChange();
 
 			// For each animated element,
-			// clear all css properties that were animated
+			// clear all js properties that were animated
 			$.each( arguments, function() {
 				var el = this.el;
 				$.each( this.diff, function( key ) {
@@ -2210,7 +2210,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 		}
 	};
 
-	// Scale the css box
+	// Scale the js box
 	if ( scale === "box" || scale === "both" ) {
 
 		// Vertical props scaling
@@ -2253,7 +2253,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 		hProps = hProps.concat( [ "marginLeft", "marginRight" ] );
 
 		// Only animate children with width attributes specified
-		// TODO: is this right? should we include anything with css width specified as well
+		// TODO: is this right? should we include anything with js width specified as well
 		element.find( "*[width]" ).each( function() {
 			var child = $( this ),
 				childOriginal = $.effects.scaledDimensions( child ),

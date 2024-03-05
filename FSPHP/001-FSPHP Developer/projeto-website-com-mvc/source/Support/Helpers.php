@@ -133,7 +133,7 @@ function str_limit_chars(string $string, int $limit, string $pointer = "..."): s
  */
 
 /**
- * @param string $path
+ * @param string|null $path
  * @return string
  */
 function url(string $path = null): string

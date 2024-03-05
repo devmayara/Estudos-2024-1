@@ -31,7 +31,7 @@ By default, when you render a section its content will overwrite any existing co
 <?php $this->end() ?>
 
 <?php $this->unshift('styles') ?>
-    <link rel="stylesheet" href="example.css" />
+    <link rel="stylesheet" href="example.js" />
 <?php $this->end() ?>
 ~~~
 

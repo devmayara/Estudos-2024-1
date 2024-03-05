@@ -104,7 +104,7 @@ server {
     }
  
     # cache static assets
-    location ~*  \.(gif|ico|css|pdf|svg)$ {
+    location ~*  \.(gif|ico|js|pdf|svg)$ {
         expires 365d;
     }
     
