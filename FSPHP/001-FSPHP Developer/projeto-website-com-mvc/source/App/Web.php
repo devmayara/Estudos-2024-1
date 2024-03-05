@@ -38,6 +38,41 @@ class Web extends Controller
     }
 
     /**
+     * SITE ABOUT
+     */
+    public function about()
+    {
+        $head = $this->seo->render(
+            "Descubra o " . CONF_SITE_NAME . " - " . CONF_SITE_DESC,
+            CONF_SITE_DESC,
+            url("sobre"),
+            url("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("about", [
+            "head" => $head,
+            "video" => "BAtzqmek1sM&t=472s"
+        ]);
+    }
+
+    /**
+     * SITE TERMS
+     */
+    public function terms()
+    {
+        $head = $this->seo->render(
+            CONF_SITE_NAME . " - Termos de uso ",
+            CONF_SITE_DESC,
+            url("termos"),
+            url("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("terms", [
+            "head" => $head,
+        ]);
+    }
+
+    /**
      * SITE NAV ERROR
      * @param array $data
      * @return void
