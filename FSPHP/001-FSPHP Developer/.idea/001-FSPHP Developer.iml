@@ -19,6 +19,13 @@
       <excludeFolder url="file://$MODULE_DIR$/04-php-orientado-a-objetos/04-04-carregamento-automatico/vendor/phpmailer/phpmailer" />
       <excludeFolder url="file://$MODULE_DIR$/07-recursos-e-componentes/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/07-recursos-e-componentes/vendor/phpmailer/phpmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/01-ola-mundo-vamos-comecar" />
+      <excludeFolder url="file://$MODULE_DIR$/02-iniciando-do-zero-com-php" />
+      <excludeFolder url="file://$MODULE_DIR$/03-manipulacao-e-tratamento" />
+      <excludeFolder url="file://$MODULE_DIR$/04-php-orientado-a-objetos" />
+      <excludeFolder url="file://$MODULE_DIR$/05-banco-de-dados-com-pdo" />
+      <excludeFolder url="file://$MODULE_DIR$/06-seguranca-e-boas-praticas" />
+      <excludeFolder url="file://$MODULE_DIR$/07-recursos-e-componentes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
