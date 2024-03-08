@@ -38,6 +38,10 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE ABOUT
+     * @return void
+     */
     public function about(): void
     {
         $head = $this->seo->render(
@@ -53,6 +57,11 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE BLOG
+     * @param array|null $data
+     * @return void
+     */
     public function blog(?array $data): void
     {
         $head = $this->seo->render(
@@ -71,6 +80,11 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE BLOGPOST
+     * @param array $data
+     * @return void
+     */
     public function blogPost(array $data): void
     {
         $postName = $data['postName'];
@@ -89,7 +103,98 @@ class Web extends Controller
     }
 
     /**
+     * SITE LOGIN
+     * @return void
+     */
+    public function login(): void
+    {
+        $head = $this->seo->render(
+            "Entrar - " . CONF_SITE_NAME,
+            CONF_SITE_DESC,
+            url("entrar"),
+            theme("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("auth-login", [
+            "head" => $head
+        ]);
+    }
+
+    /**
+     * SITE FORGET
+     * @return void
+     */
+    public function forget(): void
+    {
+        $head = $this->seo->render(
+            "Recuperar Senha - " . CONF_SITE_NAME,
+            CONF_SITE_DESC,
+            url("recuperar"),
+            theme("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("auth-forget", [
+            "head" => $head
+        ]);
+    }
+
+    /**
+     * SITE REGISTER
+     * @return void
+     */
+    public function register(): void
+    {
+        $head = $this->seo->render(
+            "Criar Conta - " . CONF_SITE_NAME,
+            CONF_SITE_DESC,
+            url("cadastrar"),
+            theme("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("auth-register", [
+            "head" => $head
+        ]);
+    }
+
+    /**
+     * SITE OPT-IN CONFIRM
+     * @return void
+     */
+    public function confirm(): void
+    {
+        $head = $this->seo->render(
+            "Confirme Seu Cadastro - " . CONF_SITE_NAME,
+            CONF_SITE_DESC,
+            url("confirma"),
+            theme("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("optin-confirm", [
+            "head" => $head
+        ]);
+    }
+
+    /**
+     * SITE OPT-IN SUCCESS
+     * @return void
+     */
+    public function success(): void
+    {
+        $head = $this->seo->render(
+            "Bem-vindo(a) ao " . CONF_SITE_NAME,
+            CONF_SITE_DESC,
+            url("obrigado"),
+            theme("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("optin-success", [
+            "head" => $head
+        ]);
+    }
+
+    /**
      * SITE TERMS
+     * @return void
      */
     public function terms(): void
     {
